@@ -7,6 +7,7 @@
 //
 
 #import "NormalViewController.h"
+#import "Tools.h"
 
 @interface NormalViewController ()
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.rowHeight = 135;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
 }
 
@@ -32,16 +34,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
-    //普通写法
-    for (NSInteger i=0; i<50; i++) {
-        NSString *str = [NSString stringWithFormat:@"%@",indexPath];
-        NSLog(@"%@",str);
-    }
-    for (NSInteger i=0; i<50; i++) {
-        NSString *str = [NSString stringWithFormat:@"%@",indexPath];
-        NSLog(@"%@",str);
-    }
+    [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    //添加文字
+    [Tools addlabel:cell indexPath:indexPath];
+    [Tools addImageWith:cell index:0];
+    [Tools addImageWith:cell index:1];
+    [Tools addImageWith:cell index:2];
     return cell;
 }
 

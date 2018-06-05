@@ -14,6 +14,8 @@
 		18E0D79A20C6342000F61846 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E0D79820C6342000F61846 /* LaunchScreen.storyboard */; };
 		18E0D79D20C6342000F61846 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E0D79C20C6342000F61846 /* main.m */; };
 		18E0D7A520C639AA00F61846 /* NormalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E0D7A420C639AA00F61846 /* NormalViewController.m */; };
+		18E0D7A720C6578200F61846 /* spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E0D7A620C6578200F61846 /* spaceship.png */; };
+		18E0D7AA20C657C700F61846 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E0D7A920C657C700F61846 /* Tools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,9 @@
 		18E0D79C20C6342000F61846 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18E0D7A320C639AA00F61846 /* NormalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalViewController.h; sourceTree = "<group>"; };
 		18E0D7A420C639AA00F61846 /* NormalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalViewController.m; sourceTree = "<group>"; };
+		18E0D7A620C6578200F61846 /* spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceship.png; sourceTree = "<group>"; };
+		18E0D7A820C657C700F61846 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		18E0D7A920C657C700F61846 /* Tools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +66,15 @@
 		18E0D78C20C6342000F61846 /* RunloopDemo */ = {
 			isa = PBXGroup;
 			children = (
+				18E0D7A620C6578200F61846 /* spaceship.png */,
 				18E0D78D20C6342000F61846 /* AppDelegate.h */,
 				18E0D78E20C6342000F61846 /* AppDelegate.m */,
 				18E0D7A320C639AA00F61846 /* NormalViewController.h */,
 				18E0D7A420C639AA00F61846 /* NormalViewController.m */,
 				18E0D79020C6342000F61846 /* ViewController.h */,
 				18E0D79120C6342000F61846 /* ViewController.m */,
+				18E0D7A820C657C700F61846 /* Tools.h */,
+				18E0D7A920C657C700F61846 /* Tools.m */,
 				18E0D79320C6342000F61846 /* Main.storyboard */,
 				18E0D79620C6342000F61846 /* Assets.xcassets */,
 				18E0D79820C6342000F61846 /* LaunchScreen.storyboard */,
@@ -134,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E0D7A720C6578200F61846 /* spaceship.png in Resources */,
 				18E0D79A20C6342000F61846 /* LaunchScreen.storyboard in Resources */,
 				18E0D79720C6342000F61846 /* Assets.xcassets in Resources */,
 				18E0D79520C6342000F61846 /* Main.storyboard in Resources */,
@@ -148,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18E0D79220C6342000F61846 /* ViewController.m in Sources */,
+				18E0D7AA20C657C700F61846 /* Tools.m in Sources */,
 				18E0D7A520C639AA00F61846 /* NormalViewController.m in Sources */,
 				18E0D79D20C6342000F61846 /* main.m in Sources */,
 				18E0D78F20C6342000F61846 /* AppDelegate.m in Sources */,

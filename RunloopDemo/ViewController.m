@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Tools.h"
 
 typedef void(^RunloopBlock)(void);
 
@@ -22,6 +23,7 @@ typedef void(^RunloopBlock)(void);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.rowHeight = 135;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self addRunloopObserver];
 }
@@ -39,6 +41,30 @@ typedef void(^RunloopBlock)(void);
         &CFRelease,
         NULL,
     };
+//    CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(), kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+//        switch (activity) {
+//            case kCFRunLoopEntry:
+//                NSLog(@"即将进入runloop");
+//                break;
+//            case kCFRunLoopBeforeTimers:
+//                NSLog(@"即将处理 Timer");
+//                break;
+//            case kCFRunLoopBeforeSources:
+//                NSLog(@"即将处理 Sources");
+//                break;
+//            case kCFRunLoopBeforeWaiting:
+//                NSLog(@"即将进入休眠");
+//                break;
+//            case kCFRunLoopAfterWaiting:
+//                NSLog(@"从休眠中唤醒loop");
+//                break;
+//            case kCFRunLoopExit:
+//                NSLog(@"即将退出runloop");
+//                break;
+//            default:
+//                break;
+//        }
+//    });
     //定义观察
     static CFRunLoopObserverRef defaultModeObserver;
     //创建观察者
@@ -89,19 +115,17 @@ static void sourceTodo(CFRunLoopObserverRef observer, CFRunLoopActivity activity
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
-    //加入runloop处理之后
+    [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    //添加文字
+    [Tools addlabel:cell indexPath:indexPath];
     [self addTask:^{
-        for (NSInteger i=0; i<50; i++) {
-            NSString *str = [NSString stringWithFormat:@"%@",indexPath];
-            NSLog(@"%@",str);
-        }
+        [Tools addImageWith:cell index:0];
     }];
     [self addTask:^{
-        for (NSInteger i=0; i<50; i++) {
-            NSString *str = [NSString stringWithFormat:@"%@",indexPath];
-            NSLog(@"%@",str);
-        }
+        [Tools addImageWith:cell index:1];
+    }];
+    [self addTask:^{
+        [Tools addImageWith:cell index:2];
     }];
     return cell;
 }
